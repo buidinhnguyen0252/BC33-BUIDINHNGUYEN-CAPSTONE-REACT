@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  $c-white: #ffffff;
+  $c-white-1: #cbc9c9;
+  $c-black: #000000;
+  $c-red: red;
+  $bg-c1-orange: #f8b653;
+  $bg-c1-light: #f8f8f8;
+  $bg-c2-light: #dedddc;
+  @mixin properties($width, $height) {
+    width: $width;
+    height: $height;
+  }
+  @mixin text($color, $fs, $fw, $lh) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+  }
+  @mixin extra-large {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+  
+  @mixin large {
+    @media screen and (max-width: 992px) {
+      @content;
+    }
+  }
+  
+  @mixin medium{
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin small {
+    @media screen and (max-width: 576px) {
+      @content;
+    }
+  }
+  //Header
+  // .header {
+  //   background-color: black;
+  //   .container {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     .logo {
+  //       img {
+  //         @include properties(116px, 32px);
+  //       }
+  //     }
+  //     .login {
+  //       display: flex;
+  //       justify-content: center;
+  //       .buy {
+  //         img {
+  //           @include properties(31px, 31px);
+  //           color: $c-white;
+  //         }
+  //       }
+  //       .text-1 {
+  //         @include text($c-white, 30px, 300, 36px);
+  //       }
+  //       .button-login {
+  //         @include text($c-white, 16px, 300, 19px);
+  //         border: 1px solid #000000;
+  //         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  //         background-color: #000000;
+  //         padding: 0px 10px;
+  //       }
+  //       .button-register {
+  //         @include text($c-white, 16px, 300, 19px);
+  //         border: 1px solid #000000;
+  //         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  //         background-color: #000000;
+  //         padding-top: 7px;
+  //         text-decoration: none;
+          
+  //       }
+  //     }
+  //   }
+  // }
+  
+  //Nav
+  .menu {
+    padding: 16px 50px;
+    @include small{
+      padding: 16px 25px;
+    }
+    a {
+      text-decoration: none;
+      padding: 0px 10px;
+      @include text($c-black, 20px,400 ,24px )
+    }
+  }
+  
+  
+  
+  //Carousel
+  .carousel {
+    // background: url(../../img/image\ 6.png);
+    background-size: cover;
+    background-position: right bottom;
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      min-height: 500px;
+      @include small{
+        min-height: 200px;
+      }
+      .thumbnail {
+        img {
+          @include properties(821px, 392px);
+          @include large{
+            @include properties(600px, 392px)
+          }
+          @include small{
+            @include properties(200px,192px )
+          }
+        }
+      }
+      .detail {
+        .product-name {
+          @include text($c-black, 40px, 300, 48px);
+          @include small{
+            @include text($c-black,25px ,300 ,25px )
+          }
+        }
+        .product-desc {
+          @include text($c-black, 20px, 300, 24px);
+          padding-bottom: 20px;
+          @include small{
+            @include text($c-black,15px ,300 ,20px )
+          }
+        }
+        .btn-buynow {
+          @include text($c-white, 20px, 300, 24px);
+          background-color: $bg-c1-orange;
+          padding: 13px 24px;
+          border: #f8b653;
+          @include properties(150px, 50px);
+        }
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  //Product
+  .product {
+    .container {
+      padding: 30px 0px;
+      .title {
+        margin: 50px 0px;
+        text-align: center;
+        @include text($c-black, 40px, 400, 48px);
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+  
+        .col {
+          width: 334px;
+          height: 400px;
+          background-color: $bg-c1-light;
+          margin: 45px;
+          @include small{
+            margin-left: 10px;
+          }
+          @include large{
+            margin: 45px 20px;
+          }
+          .card {
+            text-align: center;
+            @include properties(334px, 369px);
+  
+            img {
+              @include properties(220px, 156px);
+              margin: 35px 0px;
+            }
+            .card-body {
+              .product-name-info {
+                text-align: left;
+                padding-left: 30px;
+                .name {
+                  @include text($c-black, 24px, 300, 29px);
+                  overflow: hidden;
+                  text-overflow: clip;
+                  width: 304px;
+                  height: 29px;
+                }
+                .info {
+                  @include text($c-white-1, 20px, 300, 24px);
+                  padding: 10px 0px;
+                }
+              }
+              .card-button {
+                display: flex;
+                flex: 1 1;
+                .btn-buy {
+                  @include text($c-black, 24px, 300, 29px);
+                  background-color: $bg-c1-orange;
+                  text-decoration: none;
+                  padding-top: 15px;
+                  border: #f8b653;
+                  @include properties(175px, 64px);
+                }
+                .btn-price {
+                  @include text($c-black, 24px, 600, 29px);
+                  background-color: $bg-c2-light;
+  
+                  border: #f8b653;
+                  @include properties(160px, 64px);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  
+  
+  //Register
+  
+  
+  
+  //footer
+  .footer {
+    background-color: $bg-c2-light;
+    .container {
+      .footer-row {
+        display: flex;
+        
+        .col {
+          width: calc(100% / 3);
+          padding: 50px 30px;
+          @include small{
+            font-size: 25px;
+            // padding: 40px;
+          }
+          .title {
+            padding-bottom: 15px;
+      @include text($c-black, 27px,700 ,24px );
+      @include small{
+        font-size:10px
+      }
+          }
+          .detail {
+            padding: 10px 0px;
+      // @include text($c-black, 27px,300 ,24px )
+      @include small{
+        font-size:10px
+      }
+
+          }
+          .path {
+            text-decoration: none;
+            color: $c-red;
+            @include small{
+              font-size:10px
+            }
+          }
+        }
+      }
+    }
+  }
+  

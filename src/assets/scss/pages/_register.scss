@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+$c-white: #ffffff;
+$c1-white: #cbc9c9;
+$c2-white: #fffcfc;
+$c3-white: #fff8f8;
+$c4-white: #d9d9d9;
+$c-black: #000000;
+$c1-black: #140101;
+$c2-black: #1e1d1d;
+$c-red: red;
+$c1-red: #fc0303;
+$c-green: #1ed90e;
+$bg-c1-orange: #f8b653;
+$bg-c1-purple: #ae18e2;
+$bg-c1-light: #f8f8f8;
+$bg-c2-light: #dedddc;
+$bg-c3-light: #cccccc;
+$bg-c4-light: #d9d9d9;
+
+@mixin properties($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin text($color, $fs, $fw, $lh) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+}
+@mixin extra-large {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}
+//Header
+// .header {
+//   background-color: black;
+//   .container {
+//     display: flex;
+//     justify-content: space-between;
+//     .logo {
+//       img {
+//         @include properties(116px, 32px);
+//       }
+//     }
+//     .login {
+//       display: flex;
+//       justify-content: center;
+//       .buy {
+//         img {
+//           @include properties(31px, 31px);
+//           color: $c-white;
+//         }
+//       }
+//       .text-1 {
+//         @include text($c-white, 30px, 300, 36px);
+//       }
+//       .button-login {
+//         @include text($c-white, 16px, 300, 19px);
+//         border: 1px solid #000000;
+//         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+//         background-color: #000000;
+//         padding: 0px 10px;
+//       }
+//       .button-register {
+//         @include text($c-white, 16px, 300, 19px);
+//         border: 1px solid #000000;
+//         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+//         background-color: #000000;
+//         padding-top: 7px;
+//         text-decoration: none;
+//       }
+//     }
+//   }
+// }
+
+//Nav
+.menu {
+  padding: 16px 50px;
+  @include small {
+    padding: 16px 25px;
+    a{
+    font-size: 15px;
+
+    }}
+  a {
+    text-decoration: none;
+    padding: 0px 10px;
+    color: $c-black;
+  }
+}
+
+//Register
+.register {
+  .container {
+    position: relative;
+
+    .title {
+      font-size: 35px;
+    }
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      @include small {
+        display: block;
+      }
+      .form-group {
+        width: 482px;
+        margin-top: 20px;
+        @include small {
+          width: 100%;
+          margin: 0;
+        }
+      .error{
+        font-size: 15px;
+        color: red;
+      }
+
+        .form-control {
+          width: 65%;
+          height: 40px;
+          background-color: #cccccc;
+          @include small {
+            width: 90%;
+            margin: 0;
+          }
+
+        }
+        p {
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+       .gender {
+          .gender-col {
+            display: flex;
+            @include small {
+              display: flex;
+              flex-wrap: wrap;
+            }
+            .text {
+              width: 20%;
+              @include text($c-black, 30px, 400, 36px);
+              @include small {
+                width: 100%;
+              }
+            }
+            .male {
+              width: 20%;
+              background-color: $bg-c4-light;
+              @include small {
+                width: 10%;
+              }
+            }
+            .text-male {
+              width: 20%;
+              @include text($c-black, 30px, 400, 36px);
+              @include small {
+                width: 90%;
+              }
+            }
+            .female {
+              width: 20%;
+              @include small {
+                width: 10%;
+              }
+            }
+            .text-female {
+              width: 20%;
+              @include text($c-black, 30px, 400, 36px);
+              @include small {
+                width: 90%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .submit {
+      position: absolute;
+      bottom: -10%;
+      right: 35%;
+      background-color: $bg-c1-purple;
+      border: 0px solid $bg-c1-purple;
+      border-radius: 12px;
+      @include properties(200px, 50px);
+      @include text($c2-white, 30px, 400, 36px);
+      @include small {
+        position: static;
+      }
+      @include medium {
+        bottom: -10%;
+      }
+      @include large {
+        bottom: -20%;
+      }
+    }
+  }
+}
+
+//Contact
+.contact {
+  margin-top: 100px;
+  .container {
+    .register-row {
+      display: flex;
+      .col {
+        width: calc(100% / 3);
+        padding-left: 30px;
+        @include small {
+          width: 30%;
+        }
+        .col-title {
+          padding-bottom: 15px;
+          @include text($c-black, 30px, 700, 36px);
+          
+          @include small {
+            font-size: 13px;
+            font-weight: 700;
+          }
+        }
+        .detail {
+          padding: 5px 0px;
+          @include small {
+            font-size: 10px;
+          }
+        }
+        .path {
+          text-decoration: none;
+          color: $c-red;
+          @include small {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//footer
+// .footer {
+//   background-color: $bg-c2-light;
+//   margin-top: 50px;
+//   .container {
+//     .footer-row {
+//       display: flex;
+//       .col {
+//         width: calc(100% / 3);
+//         padding: 50px 30px;
+//         @include small {
+//           font-size: 10px;
+//           padding: 40px;
+//         }
+//         .title {
+//           padding-bottom: 15px;
+//         }
+//         .detail {
+//           padding: 10px 0px;
+//         }
+//         .path {
+//           text-decoration: none;
+//           color: $c-red;
+//         }
+//       }
+//     }
+//   }
+// }

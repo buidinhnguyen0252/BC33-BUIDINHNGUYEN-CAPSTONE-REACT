@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  $c-white: #ffffff;
+  $c-white-1: #cbc9c9;
+  $c-white-2 :#FFFCFC;
+  
+  $c-black: #000000;
+  $c1-black : #1E1D1D;
+  $c-green:#1ED90E;
+  $c-red: red;
+  $bg-c1-orange: #f8b653;
+  $bg-c1-light: #f8f8f8;
+  $bg-c2-light: #dedddc;
+  $bg-c3-light:#FFFCFC;
+  @mixin properties($width, $height) {
+    width: $width;
+    height: $height;
+  }
+  @mixin text($color, $fs, $fw, $lh) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+  }
+  @mixin extra-large {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+  
+  @mixin large {
+    @media screen and (max-width: 992px) {
+      @content;
+    }
+  }
+  
+  @mixin medium{
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  
+  
+  @mixin small {
+    @media screen and (max-width: 576px) {
+      @content;
+    }
+  }
+  //Header
+  // .header {
+  //   background-color: black;
+  //   .container {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     .logo {
+  //       img {
+  //         @include properties(116px, 32px);
+  //       }
+  //     }
+  //     .login {
+  //       display: flex;
+  //       justify-content: center;
+  //       .buy {
+  //         img {
+  //           @include properties(31px, 31px);
+  //           color: $c-white;
+  //         }
+  //       }
+  //       .text-1 {
+  //         @include text($c-white, 30px, 300, 36px);
+  //       }
+  //       .button-login {
+  //         @include text($c-white, 16px, 300, 19px);
+  //         border: 1px solid #000000;
+  //         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  //         background-color: #000000;
+  //         padding: 0px 10px;
+  //       }
+  //       .button-register {
+  //         @include text($c-white, 16px, 300, 19px);
+  //         border: 1px solid #000000;
+  //         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  //         background-color: #000000;
+  //         padding-top: 7px;
+  //         text-decoration: none;
+  //       }
+  //     }
+  //   }
+  // }
+  
+  //Nav
+  .menu {
+    padding: 16px 50px;
+  @include small{
+    padding: 16px 25px;
+  
+  }
+    a {
+      text-decoration: none;
+      padding: 0px 10px;
+      color: $c-black;
+    }
+  }
+  
+  
+  ///Product detail
+  .product-detail {
+    .container {
+      .row-product {
+        display: flex;
+        @include small{
+          display:block;
+        }
+        .img {
+          background-color: $bg-c1-light;
+          @include properties(60%, 250px);
+          margin: 58px 80px 117px 35px;
+          @include small{
+            margin: 0px;
+          };
+          @include large{
+            margin-right: 10px
+          };
+          img {
+            
+            width: 100%;
+            
+          }
+        }
+        .info-product {
+          .title {
+            @include text($c-black, 30px, 300, 36px);
+            margin-top: 67px;
+          }
+          .detail {
+            @include text($c1-black, 16px, 400, 19px);
+            margin-top: 9px;
+          }
+          .title-body {
+            @include text($c-green, 24px, 500, 29px);
+            margin: 13px 0px;
+          }
+          .size {
+            display: flex;
+            flex-wrap: nowrap;
+            @include small{
+              display: flex;
+              flex-wrap: wrap;
+            }
+            .col {
+              margin-right: 21px;
+              @include small{
+                margin-right: 5px;
+              }
+              .btn-size {
+                margin: 17px 0px;
+                background-color: $bg-c3-light;
+                @include properties(50px, 50px);
+                @include text($c1-black, 24px, 600, 29px);
+              }
+            }
+          }
+          .price {
+            @include text($c-red, 30px, 600, 36px);
+          }
+          .amounts {
+            margin-top: 17px;
+            display: flex;
+  
+            .col {
+              margin-right: 30px;
+              .add {
+                background: linear-gradient(180deg, #6181f3 0%, #7c97f5 99.48%);
+                @include properties(50px, 50px);
+                @include text($c-white-2, 30px, 400, 36px);
+              }
+              .amount {
+                @include text($c-black, 30px, 400, 36px);
+                @include properties(14px, 36px);
+              }
+              .minus {
+                background: linear-gradient(180deg, #6181f3 0%, #7c97f5 99.48%);
+                @include properties(50px, 50px);
+                @include text($c-white-2, 30px, 400, 36px);
+              }
+            }
+          }
+          .buy {
+            background: linear-gradient(
+              270deg,
+              rgba(62, 32, 248, 0.9) 5.14%,
+              #d017ee 89.71%
+            );
+            @include properties(174px, 64px);
+            @include text($c-white-2, 24px, 500, 29px);
+            margin-top: 7px;
+          }
+        }
+      }
+    }
+  }
+  
+  
+  
+  //Product
+  .productDetail  {
+    .container {
+      padding: 30px 0px;
+      .title {
+        margin: 50px 0px;
+        text-align: center;
+        @include text($c-black, 40px, 400, 48px);
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+  
+        .col {
+          width: 334px;
+          background-color: $bg-c1-light;
+          margin: 20px;
+          @include small{
+            margin-left: 10px;
+          }
+          @include large{
+            margin: 45px 20px;
+          }
+          .card {
+            text-align: center;
+            @include properties(334px, 369px);
+  
+            img {
+              @include properties(220px, 156px);
+            }
+            .card-body {
+              .product-name-info {
+                text-align: left;
+                .name {
+                  @include text($c-black, 24px, 300, 29px);
+                  overflow: hidden;
+                  text-overflow: clip;
+                  width: 304px;
+                  height: 29px;
+                padding-left: 30px;
+
+                }
+                .info {
+                  @include text($c-white-1, 20px, 300, 24px);
+                  padding: 10px 0px;
+                padding-left: 30px;
+
+                }
+                .card-button {
+                  display: flex;
+                  flex: 1 1;
+                  .btn-buy {
+                    @include text($c-black, 24px, 300, 29px);
+                    background-color: $bg-c1-orange;
+                    text-decoration: none;
+                    padding: 15px 40px;
+
+                    border: #f8b653;
+                    @include properties(175px, 64px);
+                  }
+                  .btn-price {
+                    @include text($c-black, 24px, 600, 29px);
+                    background-color: $bg-c2-light;
+    
+                    border: #f8b653;
+                    @include properties(160px, 64px);
+                  }
+                }
+              }
+              
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  
+  
+  //Register
+  .register {
+    .container {
+      .register-row {
+        display: flex;
+        .col {
+          width: calc(100% / 3);
+          padding-left: 30px;
+          @include small{
+            width: 30%;
+          }
+          .col-title {
+            padding-bottom: 15px;
+            @include small{
+              font-size: 13px;
+              font-weight: 700;
+            }
+          }
+          .detail {
+            padding: 5px 0px;
+            @include small{
+              font-size: 10px;
+            }
+          }
+          .path {
+            text-decoration: none;
+            color: $c-red;
+            @include small{
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // .footer {
+  //   background-color: $bg-c2-light;
+  //   margin-top: 50px;
+  //   .container {
+  //     .footer-row {
+  //       display: flex;
+        
+  //       .col {
+  //         width: calc(100% / 3);
+  //         padding: 50px 30px;
+  //         @include small{
+  //           font-size: 10px;
+  //           padding: 40px;
+  //         }
+  //         .title {
+  //           padding-bottom: 15px;
+  //         }
+  //         .detail {
+  //           padding: 10px 0px;
+  //         }
+  //         .path {
+  //           text-decoration: none;
+  //           color: $c-red;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  
+  
+  
+  
